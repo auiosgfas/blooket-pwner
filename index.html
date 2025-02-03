@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Blooket Pwner</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+
+    <p style="font-size: 300%; text-align: center;">Blooket Pwner</p>
+    <div class="joinArea" style="font-size: 200%; text-align: center;">
+
+        <div style="margin-bottom: 20px;">
+            <label for="crash-host-checkbox">Crash Host: </label>
+            <input type="checkbox" id="crash-host-checkbox">
+            
+        </div>  
+
+        <div style="margin-bottom: 20px;">
+            <label for="crinput-box">Game Id: </label>
+            <input id="input-box" type="text" placeholder="Enter Id">
+            
+        </div>
+        
+    </div>
+    
+    <div class="center" style="text-align: center;">
+        <input type="submit" onClick="start()">
+    </div>
+    
+    <script>
+        async function validateId() {
+            let formId = document.getElementById('input-box').value
+            try {
+
+                let newValue = parseInt(formId, 10);
+                if (isNaN(newValue) || newValue.toString() !== formId.trim()) {
+                    alert("Invalid Game Id.")
+                }
+                window.href.location = './blooket.js'
+            } catch (error) {
+                alert(error.message)
+            }
+        }
+
+        function start() {
+            (async () => {
+                await validateId()
+            })()
+        }
+    </script>
+</body>
+
+</html>
